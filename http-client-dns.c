@@ -71,7 +71,6 @@ int main() {
   hints.ai_protocol = IPPROTO_TCP;
   hints.ai_flags = 0;
 
-  struct sockaddr_in addr;
   struct client_t client;
   client.loop = loop;
 
