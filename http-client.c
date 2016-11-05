@@ -40,7 +40,7 @@ void on_connect(uv_connect_t* connection, int status) {
 }
 
 int main() {
-  uv_loop_t *loop = uv_default_loop();
+  uv_loop_t* loop = uv_default_loop();
 
   uv_tcp_t socket;
   struct sockaddr_in addr;
@@ -50,7 +50,7 @@ int main() {
   uv_tcp_keepalive(&socket, 1, 64);
   uv_ip4_addr("127.0.0.1", 8000, &addr);
 
-  uv_tcp_connect(&connect, &socket, (const struct sockaddr *) &addr, on_connect);
+  uv_tcp_connect(&connect, &socket, (const struct sockaddr*) &addr, on_connect);
 
   uv_run(loop, UV_RUN_DEFAULT);
   return 0;

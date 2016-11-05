@@ -45,7 +45,7 @@ void on_connect(uv_connect_t* connection, int status) {
   uv_read_start(stream, on_alloc, on_read);
 }
 
-void on_resolved(uv_getaddrinfo_t* resolver, int status, struct addrinfo * resolved) {
+void on_resolved(uv_getaddrinfo_t* resolver, int status, struct addrinfo* resolved) {
   char ip[17] = {'\0'};
   uv_ip4_name((struct sockaddr_in*) resolved->ai_addr, ip, 16);
   printf("resolved host:  %s\n", ip);
@@ -57,11 +57,11 @@ void on_resolved(uv_getaddrinfo_t* resolver, int status, struct addrinfo * resol
   uv_tcp_keepalive(&client->socket, 1, 64);
   uv_ip4_addr(ip, 8000, &addr);
 
-  uv_tcp_connect(&client->connect, &client->socket, (const struct sockaddr *) &addr, on_connect);
+  uv_tcp_connect(&client->connect, &client->socket, (const struct sockaddr*) &addr, on_connect);
 }
 
 int main() {
-  uv_loop_t *loop = uv_default_loop();
+  uv_loop_t* loop = uv_default_loop();
 
   uv_getaddrinfo_t resolver;
 
